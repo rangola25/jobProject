@@ -2,7 +2,7 @@ from consumer import KafkaJSONConsumer
 
 class Main:
     def __init__(self):
-        self.bootstrap_servers = 'localhost:9092'
+        self.bootstrap_servers = 'localhost:9093'
         self.topic = 'events-topic'
 
     def start_consumer(self):

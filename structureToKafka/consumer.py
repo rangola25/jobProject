@@ -1,7 +1,7 @@
 from confluent_kafka import Consumer, KafkaException, KafkaError
 
 class KafkaConsumerService:
-    def __init__(self, bootstrap_servers='localhost:9092', topic='events-topic'):
+    def __init__(self, bootstrap_servers='localhost:9093', topic='events-topic'):
         self.bootstrap_servers = bootstrap_servers
         self.topic = topic
         self.conf = {

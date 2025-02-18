@@ -25,16 +25,18 @@ class Event:
         return json.dumps(self.to_dict(), default=str)
 
 class KafkaProducerService:
-    def __init__(self, bootstrap_servers='localhost:9092', topic='events-topic'):
+    def __init__(self, bootstrap_servers='localhost:9093', topic='events-topic'):
         self.bootstrap_servers = bootstrap_servers
         self.topic = topic
         self.conf = {
             'bootstrap.servers': self.bootstrap_servers,
-            'client.id': 'python-producer'
+            'client.id': 'python-producer',
+            'message.max.bytes': 1000000000
         }
         self.producer = Producer(self.conf)
         self.id_reporter = 1
         self.event_count = 0
+        self.max_events = 5  # הגבלת יצירת 5 אובייקטים
 
     def delivery_callback(self, err, msg):
         if err is not None:
@@ -62,7 +64,6 @@ class KafkaProducerService:
         self.producer.flush()
 
     def run(self):
-        while True:
+        while self.event_count < self.max_events:  # לעצור אחרי 5 אובייקטים
             self.send_event()
             time.sleep(1)
-

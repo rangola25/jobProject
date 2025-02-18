@@ -10,7 +10,7 @@ MONGO_URI = "mongodb://localhost:27017/"
 DATABASE_NAME = "eventsdb"
 COLLECTION_NAME = "events"
 
-REDIS_HOST = "localhost"
+REDIS_HOST = "127.0.0.1"
 REDIS_PORT = 6379
 
 mongo_client = MongoClient(MONGO_URI)

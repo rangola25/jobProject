@@ -11,7 +11,7 @@ client = MongoClient(MONGO_URI)
 db = client[DATABASE_NAME]
 events_collection = db[COLLECTION_NAME]
 
-KAFKA_BROKER = "localhost:9092"
+KAFKA_BROKER = "localhost:9093"
 KAFKA_TOPIC = "events-topic"
 
 consumer = KafkaConsumer(
