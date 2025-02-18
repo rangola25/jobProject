@@ -44,7 +44,7 @@ def json_serializer(obj):
     raise TypeError(f"Type {obj.__class__.__name__} not serializable")
 
 def load_to_redis():
-    print("Starting to load data from MongoDB to Redis...")
+    print("Starting to load data from MongoDB to Redis....")
 
     last_timestamp = get_last_timestamp_from_redis()
 
